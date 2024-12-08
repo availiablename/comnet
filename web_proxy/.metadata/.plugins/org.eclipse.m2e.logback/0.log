@@ -1,0 +1,7 @@
+2024-10-31 23:00:56,929 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-10-31 23:09:34,435 [Worker-47: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: mir:mir:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\web_pro\2.SimpleWebServer(Blank)\pom.xml.
+2024-10-31 23:09:35,067 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-10-31 23:09:35,068 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Administrator\Desktop\web_pro\2.SimpleWebServer(Blank)\src\main\resources
+2024-10-31 23:09:35,071 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-10-31 23:09:35,072 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\Administrator\Desktop\web_pro\2.SimpleWebServer(Blank)\src\test\resources
+2024-10-31 23:09:35,345 [Worker-50: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: mir:mir:0.0.1-SNAPSHOT @ C:\Users\Administrator\Desktop\web_pro\2.SimpleWebServer(Blank)\pom.xml.

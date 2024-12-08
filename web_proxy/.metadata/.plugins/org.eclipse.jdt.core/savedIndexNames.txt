@@ -1,0 +1,8 @@
+INDEX VERSION 1.134+C:\Users\Administrator\Desktop\web_proxy\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+332885185.index
+4226663908.index
+926975193.index
+1057824436.index
+4022868929.index
+463140524.index
