@@ -13,7 +13,7 @@ public class WebClient {
     public static void main(String[] args) {
         // Set the host, port and resource to send HTTP Request
     	String host = "localhost";
-        int port = 8888;
+        int port = 8080;
         String resource = "/index.html";
           // Mission 1: Establish a socket connection to Server
         try (

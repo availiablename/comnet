@@ -1,19 +1,27 @@
-package web_proxy;
+package SimProxy;
+
+/**
+ * ProxyCache.java - Simple caching proxy
+ *
+ * $Id: ProxyCache.java,v 1.3 2004/02/16 15:22:00 kangasha Exp $
+ *
+ */
+
 import java.net.*;
 import java.io.*;
 import java.util.*;
 
 public class ProxyCache {
-	/** Port for the proxy */
+    /** Port for the proxy */
     private static int port;
     /** Socket for client connections */
     private static ServerSocket socket;
 
     /** Create the ProxyCache object and the socket */
     public static void init(int p) {
-	port = p;
+		port = p;
 		try {
-		    socket = /* Fill in */;
+		    socket = new ServerSocket(p);
 		} catch (IOException e) {
 		    System.out.println("Error creating socket: " + e);
 		    System.exit(-1);
@@ -31,8 +39,8 @@ public class ProxyCache {
 	
 		/* Read request */
 		try {
-		    BufferedReader fromClient = /* Fill in */;
-		    request = /* Fill in */;
+		    BufferedReader fromClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
+		    request = new HttpRequest(fromClient);
 		} catch (IOException e) {
 		    System.out.println("Error reading request from client: " + e);
 		    return;
@@ -40,9 +48,10 @@ public class ProxyCache {
 		/* Send request to server */
 		try {
 		    /* Open socket and write request to socket */
-		    server = /* Fill in */;
-		    DataOutputStream toServer = /* Fill in */;
-		    /* Fill in */
+		    server = new Socket(request.getHost(), 80);
+		    DataOutputStream toServer = new DataOutputStream(server.getOutputStream());
+		    toServer.writeBytes(request.toString());
+		    toServer.flush();
 		} catch (UnknownHostException e) {
 		    System.out.println("Unknown host: " + request.getHost());
 		    System.out.println(e);
@@ -52,12 +61,18 @@ public class ProxyCache {
 		    return;
 		}
 		/* Read response and forward it to client */
+		if (request.getPort() == 443) {
+		    System.out.println("HTTPS request detected: " + request.getHost());
+		    return; // HTTPS 요청은 무시
+		}
 		try {
-		    DataInputStream fromServer = /* Fill in */;
-		    response = /* Fill in */;
-		    DataOutputStream toClient = /* Fill in */;
-		    /* Fill in */
+		    DataInputStream fromServer = new DataInputStream(server.getInputStream());
+		    response = new HttpResponse(fromServer);
+		    DataOutputStream toClient = new DataOutputStream(client.getOutputStream());
+		    toClient.writeBytes(response.toString());
 		    /* Write response to client. First headers, then body */
+		    toClient.write(response.body, 0, response.body.length);
+		    toClient.flush();
 		    client.close();
 		    server.close();
 		    /* Insert object into the cache */
@@ -90,7 +105,7 @@ public class ProxyCache {
 		
 		while (true) {
 		    try {
-				client = /* Fill in */;
+				client = socket.accept();
 				handle(client);
 		    } catch (IOException e) {
 				System.out.println("Error reading request from client: " + e);

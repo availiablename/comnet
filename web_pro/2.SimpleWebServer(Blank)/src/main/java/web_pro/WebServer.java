@@ -30,7 +30,7 @@ public final class WebServer {
     	// Mission 1(Handle Connection): create and bind a socket (Fill #1 ~ #2)  
     	// Fill #1 Create the Serversocket and wait for the TCP Connection
     	// Establish the Serversocket wait for the TCP Connection
-    	ServerSocket socket = new ServerSocket(8888);
+    	ServerSocket socket = new ServerSocket(port);
 			// Process HTTP service requests in an infinite loop.
 			while (true) {
 				// Fill #2 Listen for a TCP connection request.
