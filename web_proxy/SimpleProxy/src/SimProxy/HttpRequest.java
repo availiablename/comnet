@@ -54,7 +54,7 @@ public class HttpRequest {
 				    if (tmp[1].indexOf(':') > 0) {
 						String[] tmp2 = tmp[1].split(":");
 						host = tmp2[0];
-						port = HTTP_PORT;
+						port = Integer.parseInt(tmp2[1]);
 				    } else {
 						host = tmp[1];
 						port = HTTP_PORT;
