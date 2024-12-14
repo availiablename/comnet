@@ -53,11 +53,13 @@ final class HttpRequest implements Runnable {
         String method =  tokens.nextToken();// Mission 2-A: Get method information, Optional Exercises
         String fileName = tokens.nextToken(); // Mission 2-B: Get URI information 
         String version = tokens.nextToken(); // Mission 2-C: Get HTTP Version information
-
+        if(fileName.startsWith("http://")) {
+        	URL url = new URL(fileName);
+        	fileName = url.getPath();
+        }
         // Prepend a "." so that file request is within the current directory.
         fileName = "." + fileName ;
         System.out.println("Current Working Directory: " + System.getProperty("user.dir"));
-
     	// Open the requested file.
         FileInputStream fis = null ;
         boolean fileExists = true ;

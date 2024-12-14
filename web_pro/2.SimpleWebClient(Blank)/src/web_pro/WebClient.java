@@ -14,7 +14,7 @@ public class WebClient {
         // Set the host, port and resource to send HTTP Request
     	String host = "localhost";
         int port = 8080;
-        String resource = "/index.html";
+        String resource = "/index.html";	
           // Mission 1: Establish a socket connection to Server
         try (
         		//Fill #1, Set TCP socket to HTTP Web Server
